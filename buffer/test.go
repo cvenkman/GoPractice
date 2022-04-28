@@ -80,7 +80,7 @@ func writeBuff(file *os.File, data string) error {
 func readBuff(file *os.File) error {
 	reader := bufio.NewReader(file)
 
-	for {
+	for{
 		line, err := reader.ReadString('\n')
 		if err == io.EOF {
 			fmt.Print("end")
