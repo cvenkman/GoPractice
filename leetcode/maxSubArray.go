@@ -10,7 +10,7 @@ package main
 
 import "fmt"
 
-/*because math.Max works with float64 */
+/* because math.Max works with float64 */
 func findMax(a, b int) int {
 	if a >= b {
 		return a
