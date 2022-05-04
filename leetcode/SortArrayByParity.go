@@ -26,31 +26,38 @@ func main() {
 	Space - O(1)
 */
 func sortArrayByParitySecond(nums []int) []int {
-	if isAllOddOrEven(nums) {
-		return nums
-	}
+	// if isAllOddOrEven(nums) {
+	// 	return nums
+	// }
 	var j, i uint16
 	j = uint16(len(nums) - 1)
 
-	for tmp := 0; i <= j; {
-		switch (nums[i] % 2) + (nums[j] % 2) {
-		case 1:
-			if nums[i] % 2 == 1 {
-				tmp = nums[i]
-				nums[i] = nums[j]
-				nums[j] = tmp
-			} else {
-				i++
-				j--
-			}
-		case 2:
+	for ; i <= j && j > 0; {
+		if nums[i] % 2 != 0 {
+			nums[i], nums[j] = nums[j], nums[i]
 			j--
-		case 0:
+		} else {
 			i++
 		}
 	}
-
+	
 	return nums
+
+	// for ; i <= j; {
+	// 	switch (nums[i] % 2) + (nums[j] % 2) {
+	// 	case 1:
+	// 		if nums[i] % 2 == 1 {
+	// 			nums[i], nums[j] = nums[j], nums[i]
+	// 		} else {
+	// 			i++
+	// 			j--
+	// 		}
+	// 	case 2:
+	// 		j--
+	// 	case 0:
+	// 		i++
+	// 	}
+	// }
 
 	/*  более понятное решение по такому же алгоритму:
 		for tmp := 0; i <= j; {
